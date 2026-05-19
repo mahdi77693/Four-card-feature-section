@@ -1,0 +1,162 @@
+/* 1. Imports & Global Reset */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-Red: hsl(0, 78%, 62%);
+  --color-Cyan: hsl(180, 62%, 55%);
+  --color-Orange: hsl(34, 97%, 64%);
+  --color-Blue: hsl(212, 86%, 64%);
+  --color-Grey-500: hsl(234, 12%, 34%);
+  --color-Grey-400: hsl(212, 6%, 44%);
+  --color-White: hsl(0, 0%, 100%);
+  --color-Background: hsl(0, 0%, 98%);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-Background);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px; /* Provides breathing room on top/bottom for all screens */
+}
+
+/* 2. Main Wrapper Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px; /* Space between header text and the cards grid */
+  width: 100%;
+  max-width: 1110px;
+}
+
+/* 3. Header Section Styling */
+.description {
+  text-align: center;
+  max-width: 540px; /* Keeps header text beautifully contained */
+}
+
+.description h1 {
+  color: var(--color-Grey-400);
+  font-weight: 200; /* Ultra-light weight for the first line */
+  font-size: 2.2rem;
+  text-transform: capitalize;
+}
+
+.description h2 {
+  color: var(--color-Grey-500);
+  font-weight: 600; /* Distinct bold weight for the second line */
+  font-size: 2.2rem;
+  text-transform: capitalize;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.description .text {
+  color: var(--color-Grey-400);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 4. Features Grid Layout (Desktop) */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+}
+
+/* 5. Individual Card Components */
+.feature {
+  background-color: var(--color-White);
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    0 4px 6px rgba(0, 0, 0, 0.04);
+
+  /* Flexbox makes managing the text alignment and bottom image effortless */
+  display: flex;
+  flex-direction: column;
+}
+
+.feature h3 {
+  color: var(--color-Grey-500);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 6px;
+}
+
+.feature p {
+  color: var(--color-Grey-400);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.feature img {
+  align-self: flex-end;
+  margin-top: 32px;
+}
+
+.supervisor {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  border-top: 4px var(--color-Cyan) solid;
+}
+
+.team-builder {
+  grid-column: 2;
+  grid-row: 1;
+  border-top: 4px var(--color-Red) solid;
+}
+
+.karma {
+  grid-column: 2;
+  grid-row: 2;
+  border-top: 4px var(--color-Orange) solid;
+}
+
+.calculator {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  border-top: 4px var(--color-Blue) solid;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 40px 20px;
+  }
+
+  .container {
+    gap: 40px;
+  }
+
+  .description h1,
+  .description h2 {
+    font-size: 1.75rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .supervisor,
+  .calculator,
+  .karma,
+  .team-builder {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
